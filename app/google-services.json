@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "552937110338",
+    "firebase_url": "https://ecommerce-e112f.firebaseio.com",
+    "project_id": "ecommerce-e112f",
+    "storage_bucket": "ecommerce-e112f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:552937110338:android:c70d5d0c83495221c126db",
+        "android_client_info": {
+          "package_name": "com.raj.ecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "552937110338-981giln8or5qg9l5m2f9h6mi2a78t5u4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWpTdwQUj5vm5vz7Y6qWn_3RpLPg1dp4Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "552937110338-981giln8or5qg9l5m2f9h6mi2a78t5u4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
