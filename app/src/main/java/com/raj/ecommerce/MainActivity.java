@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         GifImageView gifImageView = (GifImageView) findViewById(R.id.img_data);
-        gifImageView.setGifImageResource(R.drawable.ecommerce);
+        gifImageView.setGifImageResource(R.drawable.gifimage);
 
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyApp",MODE_PRIVATE);

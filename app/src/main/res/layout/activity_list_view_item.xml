@@ -19,7 +19,7 @@
         tools:layout_editor_absoluteY="-100dp">
 
         <ImageView
-            android:id="@+id/img"
+            android:id="@+id/img_list"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:src="@drawable/pents" />
@@ -31,7 +31,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/name_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -42,7 +42,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/price"
+                android:id="@+id/price_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -57,10 +57,12 @@
         </LinearLayout>
 
         <View
-            android:id="@+id/divider4"
+            android:id="@+id/divider3"
             android:layout_width="match_parent"
             android:layout_height="3dp"
-            android:background="?android:attr/listDivider" />
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -68,7 +70,7 @@
             android:layout_marginHorizontal="10dp">
 
             <TextView
-                android:id="@+id/dec"
+                android:id="@+id/dec_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -94,30 +96,20 @@
 
 
         <Button
-            android:id="@+id/btn_back"
+            android:id="@+id/btn_list_back"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="#63000000"
             android:shadowColor="#252424"
-            android:text="Back To Home"
+            android:text="Remove Item"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/btn_cart"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@color/red"
-            android:shadowColor="#FFFFFF"
-            android:text="Add to Cart"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+
+
     </LinearLayout>
 
 

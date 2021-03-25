@@ -14,6 +14,7 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +23,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.os.Handler;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -40,6 +41,7 @@ public class login extends AppCompatActivity {
     private ProgressBar progressBar;
     public static boolean onBackLogin = false;
 
+    final String TAG = this.getClass().getName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -184,21 +186,29 @@ public class login extends AppCompatActivity {
         startActivity(i);
         finish();
     }
-
+    boolean twice = false;
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setTitle("Really Exit?")
-                .setMessage("Are you sure you want to exit?")
-                .setNegativeButton(android.R.string.no, null)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+        twice = true;
+        Log.d(TAG, "click");
 
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        setResult(RESULT_OK, new Intent().putExtra("EXIT", true));
-                        finish();
-                    }
+        if (twice == true){
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            System.exit(0);
+        }
 
-                }).create().show();
-    }
+        Toast.makeText(this, "Press BACK Again to 'Exit' App.", Toast.LENGTH_SHORT).show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                twice = false;
+                Log.d(TAG, "twice: "+twice);
+            }
+        },3000);
+
+        }
 }
 

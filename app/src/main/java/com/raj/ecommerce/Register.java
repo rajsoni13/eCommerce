@@ -33,6 +33,10 @@ import com.google.firestore.v1.FirestoreGrpc;
 import java.util.HashMap;
 import java.util.Map;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class Register extends AppCompatActivity {
     TextView textView, closebtn;
     private EditText fname, email, password, confirmopassword;
@@ -55,6 +59,32 @@ public class Register extends AppCompatActivity {
         btnReg = findViewById(R.id.btn_reg);
         progressBar = findViewById(R.id.progressBarReg);
         closebtn = findViewById(R.id.register_close);
+
+        btnReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkInputs();/*if else*/
+                /*--------------------------------------------------------*/
+                String firstName = fname.getText().toString();
+                String emailId = email.getText().toString();
+                String pass = password.getText().toString();
+                ApiInterface apiInterface = ApiClient.getclient().create(ApiInterface.class);
+                Call<ResultLogin> call = apiInterface.insertdata(firstName,emailId,pass);//emailId,mobileNo,password
+                call.enqueue(new Callback<ResultLogin>() {
+                    @Override
+                    public void onResponse(Call<ResultLogin> call, Response<ResultLogin> response) {
+                        Toast.makeText(Register.this, "Successfully Registered", Toast.LENGTH_LONG).show();
+                        Intent i = new Intent(Register.this,MainActivity.class);
+                        startActivity(i);
+                    }
+                    @Override
+                    public void onFailure(Call<ResultLogin> call, Throwable t) {
+                        Toast.makeText(Register.this, "Failed to Registered", Toast.LENGTH_LONG).show();
+                    }
+                });
+                /*-----------------------------------------------------------*/
+            }
+        });
 
 
         textView.setOnClickListener(new View.OnClickListener() {
@@ -182,6 +212,11 @@ public class Register extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        this.finish();
+    }
+
     private void checkEmailandpassword() {
 
         Drawable customErrorIcon = getResources().getDrawable(R.drawable.error_icon);
@@ -197,6 +232,8 @@ public class Register extends AppCompatActivity {
             } else {
                 confirmopassword.setError("password doesn't match!", customErrorIcon);
             }
+        }else {
+            email.setError("email is not valid",customErrorIcon);
         }
     }
 }

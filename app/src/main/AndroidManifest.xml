@@ -11,14 +11,21 @@
         android:roundIcon="@drawable/img_ecommerce"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GridItemActivity"></activity>
+        <activity android:name=".ListViewItem"
+            android:screenOrientation="nosensor"></activity>
+        <activity android:name=".GridItemActivity"
+            android:screenOrientation="nosensor" />
         <activity
             android:name=".home"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".login" />
-        <activity android:name=".Register" />
-        <activity android:name=".MainActivity">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".login"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".Register"
+            android:screenOrientation="nosensor"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,5 +33,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
